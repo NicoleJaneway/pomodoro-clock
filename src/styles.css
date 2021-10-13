@@ -20,6 +20,10 @@ h1 {
   margin: 0 20px 0px 20px;
 }
 
+.set-timer p {
+  margin: 4px 0 4px 0;
+}
+
 .set-timer button {
   background: none;
   border: none;
@@ -35,13 +39,16 @@ h1 {
 
 .pomodoro {
   border: 3px solid red;
-  width: 40vw;
+  width: 355px;
   margin: auto;
   margin-top: 20px;
   padding: 10px 0 10px 0;
+  align-items: center;
 }
 
-.timer-display {
+.center {
+  margin: auto;
+  width: 0%;
 }
 
 .timer-display p {
@@ -65,5 +72,18 @@ h1 {
 }
 
 .controls button {
-  margin: 0 10px 0 10px;
+  background: none;
+  border: none;
+  margin: 0 4px 4px 4px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+#clear {
+  display: flex;
+  font: inherit;
+  text-align: center;
+  margin: auto;
+  align-items: center;
 }
