@@ -18,7 +18,7 @@ export default function SetTimer({ type, length, setLength }) {
           ⬆️
         </button>
         <p id={type.toLowerCase() + "-length"} style={{ display: "inline" }}>
-          {length}
+          {length + " min."}
         </p>
         <button id={type.toLowerCase() + "-decrement"} onClick={decrementTimer}>
           ⬇️

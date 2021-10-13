@@ -1,11 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital@0;1&display=swap");
 
+/* 
+TODO:
+-  Mobile responsiveness
+-  Rounded borders 
+-  Set a standard width for set-timers
+-  Set timer-display to width of set-timers
+*/
+
 #root {
   font-family: "Nunito", Nunito, sans-serif;
 }
 
 h1 {
   text-align: center;
+}
+
+button {
+  font-size: 1.2em;
 }
 
 .set-timer-container {
@@ -27,10 +39,8 @@ h1 {
 .set-timer button {
   background: none;
   border: none;
-  margin: 0 15px 0 15px;
-  font: inherit;
+  margin: 0 10px 0 10px;
   cursor: pointer;
-  outline: inherit;
 }
 
 .session-count {
@@ -67,6 +77,11 @@ h1 {
   margin: 0px 0px 0px 0px;
 }
 
+#time-left {
+  font-size: 5em;
+  margin: 10px 0px 10px 0px;
+}
+
 .controls {
   text-align: center;
 }
@@ -75,15 +90,13 @@ h1 {
   background: none;
   border: none;
   margin: 0 4px 4px 4px;
-  font: inherit;
   cursor: pointer;
-  outline: inherit;
 }
 
 #clear {
   display: flex;
-  font: inherit;
   text-align: center;
   margin: auto;
   align-items: center;
+  font-size: .9em;
 }
