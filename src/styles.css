@@ -7,9 +7,26 @@ TODO:
 -  Set a standard width for set-timers
 -  Set timer-display to width of set-timers
 */
+body {
+  background: var(--neutral-5);
+}
 
 #root {
   font-family: "Nunito", Nunito, sans-serif;
+
+  /* Accent colors*/
+  --primary-1: #2b8379;
+  --primary-2: #19a596;
+  --primary-3: #7fd1c7;
+  --primary-4: #7fd1c7;
+  --primary-5: #d0f3ef;
+
+  /* Neutral colors */
+  --neutral-1: #2c2c2c;
+  --neutral-2: #434343;
+  --neutral-3: #94868b;
+  --neutral-4: #d9cfd3;
+  --neutral-5: #f2ecee;
 }
 
 h1 {
@@ -28,8 +45,9 @@ button {
 .set-timer {
   text-align: center;
   padding: 10px;
-  border: 3px solid red;
+  border: 3px solid var(--neutral-3);
   margin: 0 20px 0px 20px;
+  border-radius: 15px;
 }
 
 .set-timer p {
@@ -48,7 +66,8 @@ button {
 }
 
 .pomodoro {
-  border: 3px solid red;
+  border: 3px solid var(--neutral-3);
+  border-radius: 20px;
   width: 355px;
   margin: auto;
   margin-top: 20px;
@@ -98,5 +117,5 @@ button {
   text-align: center;
   margin: auto;
   align-items: center;
-  font-size: .9em;
+  font-size: 0.9em;
 }
