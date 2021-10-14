@@ -4,7 +4,7 @@ import React from "react";
 export default function TimerDisplay({ type, countdownTime }) {
   const convert = (ms) => {
     let seconds = Math.floor((ms / 1000) % 60);
-    let minutes = Math.floor((ms / (1000 * 60)) % 60);
+    let minutes = Math.floor(ms / (1000 * 60));
 
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
