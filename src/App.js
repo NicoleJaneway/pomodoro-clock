@@ -5,6 +5,7 @@ import Clock from "./Clock";
 
 /*
 TODO 
+-  Click to edit
 -  Set up a test mode for the app:
    - Session length: 1
    - Break length: 2
@@ -18,6 +19,7 @@ TODO
    - Break time: 5 minutes
    - Confetti: every 2 sessions
 -  Jump to next button
+-  Popup on 4th session to ask user about a 15 min. break
 */
 
 export default function App() {
