@@ -56,6 +56,10 @@ export default function Clock() {
           setActive={setActive}
           initialTime={initialTime}
           sessionCounter={sessionCounter}
+          sessionLength={sessionLength}
+          breakLength={breakLength}
+          isSession={isSession}
+          setIsSession={setIsSession}
           audioRef={audioRef}
         />
       </div>

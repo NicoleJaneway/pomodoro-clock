@@ -8,8 +8,14 @@ export default function Controls({
   setActive,
   initialTime,
   sessionCounter,
+  sessionLength,
+  breakLength,
+  isSession,
+  setIsSession,
   audioRef
 }) {
+
+  // Timer function
   useEffect(() => {
     let timer = 0;
     if (active && countdownTime >= 1000)
@@ -20,6 +26,7 @@ export default function Controls({
   useEffect(() => {
     if (sessionCounter > 0) audioRef.current.play();
   }, [sessionCounter]);
+
 
   const handleToggleClick = () => {
     setActive(!active);
@@ -32,6 +39,11 @@ export default function Controls({
     audioRef.current.load();
   };
 
+  const handleNextClick = () => {
+    setIsSession(!isSession)
+    setCountdownTime( (isSession ? breakLength : sessionLength ) * 60 * 1000)
+  }
+
   return (
     <>
       <div className="controls">
@@ -40,6 +52,9 @@ export default function Controls({
         </button>
         <button id="reset" onClick={handleResetClick}>
           🔄
+        </button>
+        <button id="next" onClick={handleNextClick}>
+          ⏭
         </button>
         <audio
           id="gong"
