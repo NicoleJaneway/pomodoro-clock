@@ -1,2 +1,2 @@
 # pomodoro-clock
-Created with CodeSandbox
+A pomodoro clock in React
