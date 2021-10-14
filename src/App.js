@@ -3,11 +3,9 @@ import React from "react";
 
 import Clock from "./Clock";
 
-/*TODO:
--  Mobile responsiveness
--  Rounded borders
--  Materialize icons
--  Click into session length to edit it
+/*
+TODO 
+-  Click to edit
 -  Set up a test mode for the app:
    - Session length: 1
    - Break length: 2
@@ -20,7 +18,8 @@ import Clock from "./Clock";
    - Session time: 25 minutes
    - Break time: 5 minutes
    - Confetti: every 2 sessions
--  Clear Pomodoro Clock button that resets app
+-  Jump to next button
+-  Popup on 4th session to ask user about a 15 min. break
 */
 
 export default function App() {
