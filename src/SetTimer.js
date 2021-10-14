@@ -15,8 +15,6 @@ export default function SetTimer({ type, length, setLength }) {
     setDisplayLength(length.toString());
   }, [length]);
 
-  if (type === "Session") console.log({ displayLength });
-
   const incrementTimer = () => {
     setLength((prev) => prev + 1);
   };
@@ -27,13 +25,10 @@ export default function SetTimer({ type, length, setLength }) {
 
   const handleChange = ({ value }) => {
     setDisplayLength(value);
-    console.log("from handleChange: ", { value });
   };
 
   const handleSave = ({ value }) => {
-    console.log("from handleSave: ", { value });
     const userInput = Number.parseInt(value, 10);
-    console.log({ userInput });
     if (userInput > 0 && userInput <= 99) {
       setLength(userInput);
     }
