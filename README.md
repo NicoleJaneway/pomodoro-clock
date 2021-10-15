@@ -1,6 +1,6 @@
 # pomodoro-clock
 A pomodoro clock in React
--  Set session and break times with buttons or by typing
+-  Set session and break times with buttons or with input text
 -  Pause, reset, and next buttons
 -  Confetti explosion at completion of every fourth session
 
