@@ -3,10 +3,10 @@
 /* 
 TODO:
 -  Mobile responsiveness
--  Rounded borders 
 -  Set a standard width for set-timers
 -  Set timer-display to width of set-timers
 */
+
 body {
   background: var(--neutral-5);
 }
@@ -27,6 +27,8 @@ body {
   --neutral-3: #94868b;
   --neutral-4: #d9cfd3;
   --neutral-5: #f2ecee;
+
+  padding-top: 12vh;
 }
 
 h1 {

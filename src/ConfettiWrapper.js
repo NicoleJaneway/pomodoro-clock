@@ -9,11 +9,11 @@ export default function ConfettiWrapper({ completedSessionCounter }) {
     if (completedSessionCounter > 0 && completedSessionCounter % 4 === 0) {
       setShowingConfetti(true);
     }
-  });
 
-  if (completedSessionCounter % 4 === 3 && showingConfetti) {
-    setShowingConfetti(false);
-  }
+    if (completedSessionCounter % 4 === 3 && showingConfetti) {
+      setShowingConfetti(false); // Prime confetti explosion
+    }
+  });
 
   return <>{showingConfetti && <Confetti />}</>;
 }

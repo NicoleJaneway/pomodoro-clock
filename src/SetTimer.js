@@ -42,7 +42,7 @@ export default function SetTimer({ type, length, setLength }) {
           ⬆️
         </button>
         <EditText
-          style={{ display: "inline", width: "15px" }}
+          style={{ display: "inline", width: "15px", background: "#efefef" }}
           value={displayLength}
           onEditMode={() => setDisplayLength("")}
           onChange={handleChange}
