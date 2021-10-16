@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital@0;1&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* 
 TODO:
@@ -27,12 +30,13 @@ body {
   --neutral-3: #94868b;
   --neutral-4: #d9cfd3;
   --neutral-5: #f2ecee;
-
-  padding-top: 12vh;
 }
 
 h1 {
   text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  padding-bottom: 0px;
 }
 
 button {
@@ -40,16 +44,17 @@ button {
 }
 
 .set-timer-container {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
 }
 
 .set-timer {
   text-align: center;
   padding: 10px;
   border: 3px solid var(--neutral-3);
-  margin: 0 20px 0px 20px;
+  /* margin: 0 20px 0px 20px; */
   border-radius: 15px;
+  /* width: 178px; */
 }
 
 .set-timer p {
@@ -70,11 +75,12 @@ button {
 .pomodoro {
   border: 3px solid var(--neutral-3);
   border-radius: 20px;
-  width: 355px;
+  /* width: 355px; */
   margin: auto;
-  margin-top: 20px;
+  margin: 20px;
   padding: 10px 0 10px 0;
   align-items: center;
+  /* width: 440px; */
 }
 
 .center {
