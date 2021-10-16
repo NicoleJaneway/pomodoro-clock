@@ -14,7 +14,7 @@ export default function TimerDisplay({ type, countdownTime }) {
 
   return (
     <>
-      <div className="timer-display">
+      <div className="timer-display block">
         <h3 id="timer-label">{type}</h3>
         <p id="description">time left</p>
         <p id="time-left">{convert(countdownTime)}</p>
