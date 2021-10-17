@@ -5,7 +5,7 @@ import "react-edit-text/dist/index.css";
 
 /*
 TODO:
--  Prevent set-time from ever being undefined
+-  Prevent set-time from ever being blank
 */
 
 export default function SetTimer({ type, length, setLength }) {
@@ -36,13 +36,13 @@ export default function SetTimer({ type, length, setLength }) {
 
   return (
     <>
-      <div className="set-timer block m-4 sm:inline-block">
+      <div className="set-timer place-items-center block m-4 sm:inline-block sm:w-48">
         <p id={type.toLowerCase() + "-label"}>{type} Length</p>
         <button id={type.toLowerCase() + "-increment"} onClick={incrementTimer}>
           ⬆️
         </button>
         <EditText
-          style={{ display: "inline", width: "15px", background: "#efefef" }}
+          style={{ display: "inline", width: "32px", background: "#efefef" }}
           value={displayLength}
           onEditMode={() => setDisplayLength("")}
           onChange={handleChange}

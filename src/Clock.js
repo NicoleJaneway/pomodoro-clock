@@ -31,7 +31,7 @@ export default function Clock() {
 
   return (
     <>
-      <div className="set-timer-container">
+      <div className="set-timer-container sm:flex sm:justify-center">
         <SetTimer
           type="Session"
           length={sessionLength}
@@ -43,27 +43,29 @@ export default function Clock() {
           setLength={setBreakLength}
         />
       </div>
-      <div className="pomodoro">
-        <TimerDisplay
-          type={isSession ? "Session" : "Break"}
-          countdownTime={countdownTime}
-        />
-        <ConfettiWrapper completedSessionCounter={completedSessionCounter} />
-        <Controls
-          countdownTime={countdownTime}
-          setCountdownTime={setCountdownTime}
-          active={active}
-          setActive={setActive}
-          initialTime={initialTime}
-          sessionCounter={sessionCounter}
-          sessionLength={sessionLength}
-          breakLength={breakLength}
-          isSession={isSession}
-          setIsSession={setIsSession}
-          audioRef={audioRef}
-        />
+      <div className="flex justify-center">
+        <div className="pomodoro mr-4 ml-4 mb-4 p-2 w-screen sm:w-80">
+          <TimerDisplay
+            type={isSession ? "Session" : "Break"}
+            countdownTime={countdownTime}
+          />
+          <ConfettiWrapper completedSessionCounter={completedSessionCounter} />
+          <Controls
+            countdownTime={countdownTime}
+            setCountdownTime={setCountdownTime}
+            active={active}
+            setActive={setActive}
+            initialTime={initialTime}
+            sessionCounter={sessionCounter}
+            sessionLength={sessionLength}
+            breakLength={breakLength}
+            isSession={isSession}
+            setIsSession={setIsSession}
+            audioRef={audioRef}
+          />
+        </div>
       </div>
-      <p className="session-count">
+      <p className="session-count mb-2">
         Sessions completed: {completedSessionCounter}
       </p>
       <ClearClock
