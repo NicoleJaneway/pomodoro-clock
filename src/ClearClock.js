@@ -23,7 +23,7 @@ export default function ClearClock({
   };
 
   return (
-    <button id="clear" className="bg-transparent hover:bg-gray-500 text-grey-700 font-semibold hover:text-white py-1 px-4 mt-10 border border-gray-500 hover:border-transparent rounded" onClick={handleClick}>
+    <button id="clear" className="" onClick={handleClick}>
       Clear Pomodoro Clock
     </button>
   );

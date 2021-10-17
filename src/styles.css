@@ -76,17 +76,17 @@ button {
   border: 3px solid var(--neutral-3);
   border-radius: 20px;
   /* width: 355px; */
-  margin: auto;
-  margin: 20px;
-  padding: 10px 0 10px 0;
-  align-items: center;
+  /* margin: auto; */
+  /* margin: 20px; */
+  /* padding: 10px 0 10px 0; */
+  /* align-items: center; */
   /* width: 440px; */
 }
 
-.center {
+/* .center {
   margin: auto;
   width: 0%;
-}
+} */
 
 .timer-display p {
   text-align: center;
@@ -106,7 +106,7 @@ button {
 
 #time-left {
   font-size: 5em;
-  margin: 10px 0px 10px 0px;
+  /* margin: 8px 0px 8px 0px; */
 }
 
 .controls {
@@ -126,4 +126,8 @@ button {
   margin: auto;
   align-items: center;
   font-size: 0.9em;
+  border: 2px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 5px;
+  background: #efefef;
 }

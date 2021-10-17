@@ -36,7 +36,7 @@ export default function SetTimer({ type, length, setLength }) {
 
   return (
     <>
-      <div className="set-timer block m-4 sm:inline-block">
+      <div className="set-timer place-items-center block m-4 sm:inline-block sm:w-48">
         <p id={type.toLowerCase() + "-label"}>{type} Length</p>
         <button id={type.toLowerCase() + "-increment"} onClick={incrementTimer}>
           ⬆️

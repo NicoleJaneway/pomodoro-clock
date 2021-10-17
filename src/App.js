@@ -24,7 +24,7 @@ TODO
 export default function App() {
   return (
     <>
-      <h1 className="mt-10 sm:mt-40">Pomodoro Clock</h1>
+      <h1 className="mt-8 sm:mt-40">Pomodoro Clock</h1>
       <Clock />
     </>
   );
