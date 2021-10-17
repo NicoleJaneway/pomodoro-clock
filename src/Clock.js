@@ -8,23 +8,23 @@ import SetTimer from "./SetTimer";
 import TimerDisplay from "./TimerDisplay";
 
 export default function Clock() {
-  const [sessionLength, setSessionLength] = useState(25);
-  const [breakLength, setBreakLength] = useState(5);
-  const [countdownTime, setCountdownTime] = useState(sessionLength * 60 * 1000);
+  const [sessionLength, setSessionLength] = useState(1);
+  const [breakLength, setBreakLength] = useState(2);
+  const [countdownTime, setCountdownTime] = useState(sessionLength * 2 * 1000);
   const [active, setActive] = useState(false);
   const [isSession, setIsSession] = useState(true);
   const [sessionCounter, setSessionCounter] = useState(0);
   const completedSessionCounter = Math.ceil(sessionCounter / 2);
   const audioRef = useRef();
 
-  let initialTime = (isSession ? sessionLength : breakLength) * 60 * 1000;
+  let initialTime = (isSession ? sessionLength : breakLength) * 2 * 1000; // fix
 
   useEffect(() => {
     setCountdownTime(initialTime);
   }, [sessionLength, breakLength]);
 
   if (countdownTime === 0) {
-    setCountdownTime((isSession ? breakLength : sessionLength) * 60 * 1000);
+    setCountdownTime((isSession ? breakLength : sessionLength) * 2 * 1000);
     setSessionCounter((prev) => prev + 1);
     setIsSession(!isSession);
   }
@@ -49,7 +49,11 @@ export default function Clock() {
             type={isSession ? "Session" : "Break"}
             countdownTime={countdownTime}
           />
-          <ConfettiWrapper completedSessionCounter={completedSessionCounter} />
+          <div className="center">
+            <ConfettiWrapper 
+              completedSessionCounter={completedSessionCounter}
+              setBreakLength={setBreakLength} />
+          </div>
           <Controls
             countdownTime={countdownTime}
             setCountdownTime={setCountdownTime}

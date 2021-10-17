@@ -83,10 +83,10 @@ button {
   /* width: 440px; */
 }
 
-/* .center {
+.center {
   margin: auto;
   width: 0%;
-} */
+}
 
 .timer-display p {
   text-align: center;
@@ -143,15 +143,16 @@ button {
  
 .box {
   position: relative;
-  width: 70%;
+  width: 78%;
   margin: 0 auto;
   height: auto;
   max-height: 70vh;
-  margin-top: calc(100vh - 85vh - 20px);
+  margin-top: calc(100vh - 50vh - 20px);
   background: #fff;
   border-radius: 4px;
   padding: 20px;
   border: 1px solid #999;
+  border-radius: 5px;
   overflow: auto;
 }
  
@@ -159,8 +160,8 @@ button {
   content: 'x';
   cursor: pointer;
   position: fixed;
-  right: calc(15% - 30px);
-  top: calc(100vh - 85vh - 33px);
+  right: calc(15% - 10px);
+  top: calc(100vh - 49vh - 20px);
   background: #ededed;
   width: 25px;
   height: 25px;
