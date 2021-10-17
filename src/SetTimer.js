@@ -5,7 +5,7 @@ import "react-edit-text/dist/index.css";
 
 /*
 TODO:
--  Prevent set-time from ever being undefined
+-  Prevent set-time from ever being blank
 */
 
 export default function SetTimer({ type, length, setLength }) {
@@ -42,7 +42,7 @@ export default function SetTimer({ type, length, setLength }) {
           ⬆️
         </button>
         <EditText
-          style={{ display: "inline", width: "15px", background: "#efefef" }}
+          style={{ display: "inline", width: "32px", background: "#efefef" }}
           value={displayLength}
           onEditMode={() => setDisplayLength("")}
           onChange={handleChange}
