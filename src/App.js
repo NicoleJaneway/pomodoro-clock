@@ -23,7 +23,7 @@ export default function App() {
       <PopupContext.Provider value={showPopups}>
         <SettingsButton setShowPopups={setShowPopups} />
         <h1 className="mt-8 sm:mt-40">Pomodoro Clock</h1>
-        <EnvironmentContext.Provider value="test">
+        <EnvironmentContext.Provider value="production">
           <Clock />
         </EnvironmentContext.Provider>
       </PopupContext.Provider>

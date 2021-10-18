@@ -34,9 +34,11 @@ export default function ConfettiWrapper({
   // show popup
   useEffect(() => {
     if (showingConfetti === true) {
-      const timer = setTimeout(() => setIsOpen(true), 1500);
+      const timer0 = setTimeout(() => setIsOpen(true), 1500);
+      const timer1 = setTimeout(() => setIsOpen(false), 45000);
       return () => {
-        clearTimeout(timer);
+        clearTimeout(timer0);
+        clearTimeout(timer1);
       };
     }
   }, [showingConfetti]);
