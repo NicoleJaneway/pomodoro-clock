@@ -50,9 +50,11 @@ export default function Clock() {
             countdownTime={countdownTime}
           />
           <div className="center">
-            <ConfettiWrapper 
+            <ConfettiWrapper
               completedSessionCounter={completedSessionCounter}
-              setBreakLength={setBreakLength} />
+              breakLength={breakLength}
+              setBreakLength={setBreakLength}
+            />
           </div>
           <Controls
             countdownTime={countdownTime}

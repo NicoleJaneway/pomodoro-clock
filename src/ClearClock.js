@@ -23,7 +23,7 @@ export default function ClearClock({
   };
 
   return (
-    <button id="clear" className="" onClick={handleClick}>
+    <button className="pom-btn" onClick={handleClick}>
       Clear Pomodoro Clock
     </button>
   );

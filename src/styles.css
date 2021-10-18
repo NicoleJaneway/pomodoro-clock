@@ -120,16 +120,19 @@ button {
   cursor: pointer;
 }
 
-#clear {
+.pom-btn {
   display: flex;
   text-align: center;
   margin: auto;
-  align-items: center;
   font-size: 0.9em;
   border: 2px solid #d3d3d3;
   border-radius: 5px;
   padding: 5px;
   background: #efefef;
+}
+
+.set-break {
+  display: inline;
 }
 
 .popup-box {
@@ -140,7 +143,7 @@ button {
   top: 0;
   left: 0;
 }
- 
+
 .box {
   position: relative;
   width: 78%;
@@ -155,9 +158,9 @@ button {
   border-radius: 5px;
   overflow: auto;
 }
- 
+
 .close-icon {
-  content: 'x';
+  content: "x";
   cursor: pointer;
   position: fixed;
   right: calc(15% - 10px);
