@@ -6,7 +6,7 @@ export default function Popup({ handleClose, breakLength, setBreakLength }) {
   const handleClick = () => {
     setBreakLength(15);
     handleClose();
-    const timer = setTimeout(()=>setBreakLength(breakLength), 15 * 60 * 1000);
+    const timer = setTimeout(() => setBreakLength(breakLength), 15 * 60 * 1000);
     return clearTimeout(timer);
   };
 
