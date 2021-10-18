@@ -2,7 +2,11 @@ import "./styles.css";
 import React from "react";
 import "react-edit-text/dist/index.css";
 
-export default function Popup({ handleClose, breakLength, setBreakLength }) {
+export default function LongBreakPopup({
+  handleClose,
+  breakLength,
+  setBreakLength
+}) {
   const handleClick = () => {
     setBreakLength(15);
     handleClose();

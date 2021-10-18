@@ -1,7 +1,7 @@
 import "./styles.css";
 import React, { useState, useEffect, useRef, useContext } from "react";
 
-import ConfettiWrapper from "./ConfettiWrapper";
+import LongBreakWrapper from "./LongBreakWrapper";
 import ClearClock from "./ClearClock";
 import Controls from "./Controls";
 import SetTimer from "./SetTimer";
@@ -76,7 +76,7 @@ export default function Clock() {
             countdownTime={countdownTime}
           />
           <div className="center">
-            <ConfettiWrapper
+            <LongBreakWrapper
               completedSessionCounter={completedSessionCounter}
               breakLength={breakLength}
               setBreakLength={setBreakLength}

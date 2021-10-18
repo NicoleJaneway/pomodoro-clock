@@ -3,8 +3,8 @@ import React from "react";
 
 import Clock from "./Clock";
 import EnvironmentContext from "./EnvironmentContext";
-import PopupContext from "./PopupContext"
-import SettingsButton from "./SettingsButton"
+import PopupContext from "./PopupContext";
+import SettingsButton from "./SettingsButton";
 
 /*
 TODO 
@@ -22,7 +22,7 @@ export default function App() {
       <SettingsButton />
       <h1 className="mt-8 sm:mt-40">Pomodoro Clock</h1>
       <PopupContext.Provider value="show">
-        <EnvironmentContext.Provider value="production">
+        <EnvironmentContext.Provider value="test">
           <Clock />
         </EnvironmentContext.Provider>
       </PopupContext.Provider>

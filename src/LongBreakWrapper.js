@@ -1,7 +1,7 @@
 import "./styles.css";
 import React, { useState, useEffect } from "react";
 import ConfettiExplosion from "@reonomy/react-confetti-explosion";
-import Popup from "./Popup.js";
+import LongBreakPopup from "./LongBreakPopup.js";
 
 export default function ConfettiWrapper({
   completedSessionCounter,
@@ -31,19 +31,19 @@ export default function ConfettiWrapper({
 
   // show popup
   useEffect(() => {
-    if(showingConfetti === true) {
+    if (showingConfetti === true) {
       const timer = setTimeout(() => setIsOpen(true), 1500);
       return () => {
         clearTimeout(timer);
-      }
-    };
+      };
+    }
   }, [showingConfetti]);
 
   return (
     <>
       {showingConfetti && <Confetti />}
       {isOpen && (
-        <Popup
+        <LongBreakPopup
           handleClose={() => setIsOpen(!isOpen)}
           setBreakLength={setBreakLength}
           breakLength={breakLength}
