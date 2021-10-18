@@ -6,27 +6,36 @@ import Popup from "./Popup.js";
 export default function ConfettiWrapper({
   completedSessionCounter,
   breakLength,
-  setBreakLength
+  setBreakLength,
+  confettiInterval
 }) {
   const [showingConfetti, setShowingConfetti] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   // show confetti
   useEffect(() => {
-    if (completedSessionCounter > 0 && completedSessionCounter % 2 === 0) {
+    if (
+      completedSessionCounter > 0 &&
+      completedSessionCounter % confettiInterval === 0
+    ) {
       setShowingConfetti(true);
     }
 
-    if (completedSessionCounter % 2 === 1 && showingConfetti) {
+    if (
+      completedSessionCounter % confettiInterval === confettiInterval - 1 &&
+      showingConfetti
+    ) {
       setShowingConfetti(false); // Prime confetti explosion
     }
   });
 
   // show popup
   useEffect(() => {
-    const timer = setTimeout(() => setIsOpen(true), 1500);
-    return () => {
-      clearTimeout(timer);
+    if(showingConfetti === true) {
+      const timer = setTimeout(() => setIsOpen(true), 1500);
+      return () => {
+        clearTimeout(timer);
+      }
     };
   }, [showingConfetti]);
 

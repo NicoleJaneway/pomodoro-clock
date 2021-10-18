@@ -2,30 +2,30 @@ import "./styles.css";
 import React from "react";
 
 import Clock from "./Clock";
+import EnvironmentContext from "./EnvironmentContext";
+import PopupContext from "./PopupContext"
+import SettingsButton from "./SettingsButton"
 
 /*
 TODO 
 -  Refactor weirdness sessionLength vs. breakLength vs. initialLength
--  Set up a test mode for the app:
-   - Session length: 1
-   - Break length: 2
-   - Session time: 2 seconds
-   - Break time: 4 seconds
-   - Confetti: every 2 sessions
--  Versus prod mode:
-   - Session length: 25
-   - Break length: 5
-   - Session time: 25 minutes
-   - Break time: 5 minutes
-   - Confetti: every 2 sessions
--  Popup on 4th session to ask user about a 15 min. break
+-  Rename confettiWrapper?
+-  Popup to add task and put text before time left
+-  Settings menu
+   -  Gear button
+   -  Toggle off dialogs
 */
 
 export default function App() {
   return (
     <>
+      <SettingsButton />
       <h1 className="mt-8 sm:mt-40">Pomodoro Clock</h1>
-      <Clock />
+      <PopupContext.Provider value="show">
+        <EnvironmentContext.Provider value="production">
+          <Clock />
+        </EnvironmentContext.Provider>
+      </PopupContext.Provider>
     </>
   );
 }
