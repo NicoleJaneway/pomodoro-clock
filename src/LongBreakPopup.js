@@ -20,10 +20,13 @@ export default function LongBreakPopup({
         <span className="close-icon" onClick={handleClose}>
           x
         </span>
-        <p className="text-center pb-1">
-          Congratulations on finishing 4 pomodoros
+        <p className="text-center pb-2 ">
+          Congratulations on
+          <br />
+          finishing 4 pomodoros
         </p>
-        <p className="text-center pb-4">
+        <hr />
+        <p className="text-center pt-2 pb-4">
           Would you like to take a 15 minute break?
         </p>
         <div style={{ display: "flex", justifyContent: "center" }}>

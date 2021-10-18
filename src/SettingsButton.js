@@ -2,9 +2,8 @@ import React, { useState } from "react";
 
 import SettingsPopup from "./SettingsPopup";
 
-export default function SettingsButton() {
+export default function SettingsButton({ setShowPopups }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [showPopup, setShowPopup] = useState(true);
 
   const handleClick = () => {
     setIsOpen(true);
@@ -12,8 +11,15 @@ export default function SettingsButton() {
 
   return (
     <>
-      <button onClick={handleClick}>⚙️</button>
-      <SettingsPopup handleClose={() => setIsOpen(!isOpen)} />
+      <button className="absolute top-2 right-3" onClick={handleClick}>
+        ⚙️
+      </button>
+      {isOpen && (
+        <SettingsPopup
+          handleClose={() => setIsOpen(!isOpen)}
+          setShowPopups={setShowPopups}
+        />
+      )}
     </>
   );
 }

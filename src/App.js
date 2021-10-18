@@ -1,5 +1,5 @@
 import "./styles.css";
-import React from "react";
+import React, { useState } from "react";
 
 import Clock from "./Clock";
 import EnvironmentContext from "./EnvironmentContext";
@@ -9,7 +9,6 @@ import SettingsButton from "./SettingsButton";
 /*
 TODO 
 -  Refactor weirdness sessionLength vs. breakLength vs. initialLength
--  Rename confettiWrapper?
 -  Popup to add task and put text before time left
 -  Settings menu
    -  Gear button
@@ -17,11 +16,13 @@ TODO
 */
 
 export default function App() {
+  const [showPopups, setShowPopups] = useState(true);
+
   return (
     <>
-      <SettingsButton />
-      <h1 className="mt-8 sm:mt-40">Pomodoro Clock</h1>
-      <PopupContext.Provider value="show">
+      <PopupContext.Provider value={showPopups}>
+        <SettingsButton setShowPopups={setShowPopups} />
+        <h1 className="mt-8 sm:mt-40">Pomodoro Clock</h1>
         <EnvironmentContext.Provider value="test">
           <Clock />
         </EnvironmentContext.Provider>
