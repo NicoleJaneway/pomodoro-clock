@@ -35,6 +35,7 @@ export default function Clock() {
   const [isSession, setIsSession] = useState(true);
   const [sessionCounter, setSessionCounter] = useState(0);
   const completedSessionCounter = Math.ceil(sessionCounter / 2);
+  const [task, setTask] = useState("");
 
   const audioRef = useRef();
 
@@ -74,6 +75,7 @@ export default function Clock() {
           <TimerDisplay
             type={isSession ? "Session" : "Break"}
             countdownTime={countdownTime}
+            task={task}
           />
           <div className="center">
             <LongBreakWrapper
@@ -95,6 +97,8 @@ export default function Clock() {
             isSession={isSession}
             setIsSession={setIsSession}
             audioRef={audioRef}
+            setTask={setTask}
+            task={task}
           />
         </div>
       </div>
@@ -110,6 +114,7 @@ export default function Clock() {
         audioRef={audioRef}
         setSessionLength={setSessionLength}
         setBreakLength={setBreakLength}
+        setTask={setTask}
       />
     </>
   );

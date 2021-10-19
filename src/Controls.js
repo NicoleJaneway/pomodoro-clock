@@ -14,6 +14,8 @@ export default function Controls({
   breakLength,
   isSession,
   setIsSession,
+  setTask,
+  task,
   audioRef
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +31,10 @@ export default function Controls({
   }, [countdownTime, active]);
 
   useEffect(() => {
-    if (sessionCounter > 0) audioRef.current.play();
+    if (sessionCounter > 0) {
+      audioRef.current.play();
+      setTask("");
+    }
   }, [sessionCounter]);
 
   const handleToggleClick = () => {
@@ -37,14 +42,16 @@ export default function Controls({
   };
 
   const handleResetClick = () => {
-    setActive(false);
+    // setActive(false);
     setCountdownTime(initialTime);
+    setTask("");
     audioRef.current.pause();
     audioRef.current.load();
   };
 
   const handleNextClick = () => {
     setIsSession(!isSession);
+    setTask("");
     setCountdownTime((isSession ? breakLength : sessionLength) * 60 * 1000);
   };
 
@@ -74,7 +81,9 @@ export default function Controls({
           ref={audioRef}
         />
       </div>
-      {isOpen && <TaskPopup handleClose={() => setIsOpen(!isOpen)} />}
+      {isOpen && (
+        <TaskPopup setIsOpen={setIsOpen} setTask={setTask} task={task} />
+      )}
     </>
   );
 }

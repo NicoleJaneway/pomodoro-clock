@@ -1,14 +1,29 @@
 import "./styles.css";
-import React from "react";
+import React, { useEffect } from "react";
 import "react-edit-text/dist/index.css";
 import { EditText } from "react-edit-text";
 
-export default function TaskPopup({ handleClose }) {
-  const handleClick = () => {};
+export default function TaskPopup({ setIsOpen, setTask, task }) {
+  useEffect(() => {
+    console.log(task);
+  }, [task]);
+
+  const handleClick = () => {
+    setIsOpen(false);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setTask("");
+  };
+
+  const handleSave = ({ value }) => {
+    setTask(value);
+  };
 
   return (
     <div className="popup-box">
-      <div className="box w-10/12 mt-80 m-auto sm:w-72 ">
+      <div className="box w-10/12 mt-80 m-auto sm:w-72 sm:top-1/3 sm:mt-0">
         <span className="close-icon" onClick={handleClose}>
           x
         </span>
@@ -17,7 +32,7 @@ export default function TaskPopup({ handleClose }) {
         </p>
         <div className="pb-4">
           <label>
-            <EditText style={{ background: "#efefef" }} />
+            <EditText style={{ background: "#efefef" }} onSave={handleSave} />
           </label>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>

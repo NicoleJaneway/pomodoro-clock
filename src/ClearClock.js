@@ -9,7 +9,8 @@ export default function ClearClock({
   setSessionCounter,
   audioRef,
   setSessionLength,
-  setBreakLength
+  setBreakLength,
+  setTask
 }) {
   const handleClick = () => {
     setActive(false);
@@ -18,6 +19,7 @@ export default function ClearClock({
     setBreakLength(5);
     setCountdownTime(sessionLength * 60 * 1000);
     setSessionCounter(0);
+    setTask("");
     audioRef.current.pause();
     audioRef.current.load();
   };

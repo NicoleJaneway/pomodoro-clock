@@ -1,7 +1,7 @@
 import "./styles.css";
 import React from "react";
 
-export default function TimerDisplay({ type, countdownTime }) {
+export default function TimerDisplay({ type, countdownTime, task }) {
   const convert = (ms) => {
     let seconds = Math.floor((ms / 1000) % 60);
     let minutes = Math.floor(ms / (1000 * 60));
@@ -18,7 +18,7 @@ export default function TimerDisplay({ type, countdownTime }) {
         <p id="timer-label" className="text-xl">
           {type}
         </p>
-        <p id="description">time left</p>
+        <p id="description">{task !== "" ? task + " - " : null}time left</p>
         <p id="time-left">{convert(countdownTime)}</p>
       </div>
     </>

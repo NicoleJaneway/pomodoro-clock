@@ -9,10 +9,6 @@ import SettingsButton from "./SettingsButton";
 /*
 TODO 
 -  Refactor weirdness sessionLength vs. breakLength vs. initialLength
--  Popup to add task and put text before time left
--  Settings menu
-   -  Gear button
-   -  Toggle off dialogs
 */
 
 export default function App() {

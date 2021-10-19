@@ -16,7 +16,7 @@ export default function LongBreakPopup({
 
   return (
     <div className="popup-box">
-      <div className="box w-10/12 mt-80 m-auto sm:w-72 ">
+      <div className="box w-10/12 mt-80 m-auto sm:w-72 sm:top-1/3 sm:mt-0">
         <span className="close-icon" onClick={handleClose}>
           x
         </span>

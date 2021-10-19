@@ -5,7 +5,7 @@ export default function Popup({ handleClose, setShowPopups }) {
   const popups = useContext(PopupContext);
   return (
     <div className="popup-box">
-      <div className="box w-10/12 mt-28 m-auto sm:w-72 ">
+      <div className="box w-10/12 mt-28 m-auto sm:w-72 sm:top-1/3 sm:mt-0">
         <span className="settings-close-icon" onClick={handleClose}>
           x
         </span>
