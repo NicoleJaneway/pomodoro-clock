@@ -1,30 +1,57 @@
 import "./styles.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 
-import ConfettiWrapper from "./ConfettiWrapper";
+import LongBreakWrapper from "./LongBreakWrapper";
 import ClearClock from "./ClearClock";
 import Controls from "./Controls";
 import SetTimer from "./SetTimer";
 import TimerDisplay from "./TimerDisplay";
+import EnvironmentContext from "./EnvironmentContext";
+
+const prodSettings = {
+  sessionLength: 25,
+  breakLength: 5,
+  numberOfSeconds: 60,
+  confettiInterval: 4
+};
+
+const testSettings = {
+  sessionLength: 1,
+  breakLength: 2,
+  numberOfSeconds: 2,
+  confettiInterval: 2
+};
 
 export default function Clock() {
-  const [sessionLength, setSessionLength] = useState(25);
-  const [breakLength, setBreakLength] = useState(5);
-  const [countdownTime, setCountdownTime] = useState(sessionLength * 60 * 1000);
+  const environment = useContext(EnvironmentContext);
+  const settings = environment === "production" ? prodSettings : testSettings;
+
+  const [sessionLength, setSessionLength] = useState(settings.sessionLength);
+  const [breakLength, setBreakLength] = useState(settings.breakLength);
+  const [countdownTime, setCountdownTime] = useState(
+    sessionLength * settings.numberOfSeconds * 1000
+  );
   const [active, setActive] = useState(false);
   const [isSession, setIsSession] = useState(true);
   const [sessionCounter, setSessionCounter] = useState(0);
   const completedSessionCounter = Math.ceil(sessionCounter / 2);
+  const [task, setTask] = useState("");
+
   const audioRef = useRef();
 
-  let initialTime = (isSession ? sessionLength : breakLength) * 60 * 1000;
+  let initialTime =
+    (isSession ? sessionLength : breakLength) * settings.numberOfSeconds * 1000; // fix
 
   useEffect(() => {
     setCountdownTime(initialTime);
   }, [sessionLength, breakLength]);
 
   if (countdownTime === 0) {
-    setCountdownTime((isSession ? breakLength : sessionLength) * 60 * 1000);
+    setCountdownTime(
+      (isSession ? breakLength : sessionLength) *
+        settings.numberOfSeconds *
+        1000
+    );
     setSessionCounter((prev) => prev + 1);
     setIsSession(!isSession);
   }
@@ -48,8 +75,16 @@ export default function Clock() {
           <TimerDisplay
             type={isSession ? "Session" : "Break"}
             countdownTime={countdownTime}
+            task={task}
           />
-          <ConfettiWrapper completedSessionCounter={completedSessionCounter} />
+          <div className="center">
+            <LongBreakWrapper
+              completedSessionCounter={completedSessionCounter}
+              breakLength={breakLength}
+              setBreakLength={setBreakLength}
+              confettiInterval={settings.confettiInterval}
+            />
+          </div>
           <Controls
             countdownTime={countdownTime}
             setCountdownTime={setCountdownTime}
@@ -62,6 +97,8 @@ export default function Clock() {
             isSession={isSession}
             setIsSession={setIsSession}
             audioRef={audioRef}
+            setTask={setTask}
+            task={task}
           />
         </div>
       </div>
@@ -77,6 +114,7 @@ export default function Clock() {
         audioRef={audioRef}
         setSessionLength={setSessionLength}
         setBreakLength={setBreakLength}
+        setTask={setTask}
       />
     </>
   );

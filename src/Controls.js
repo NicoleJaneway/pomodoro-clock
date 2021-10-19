@@ -1,5 +1,7 @@
 import "./styles.css";
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import PopupContext from "./PopupContext";
+import TaskPopup from "./TaskPopup";
 
 export default function Controls({
   countdownTime,
@@ -12,18 +14,27 @@ export default function Controls({
   breakLength,
   isSession,
   setIsSession,
+  setTask,
+  task,
   audioRef
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const popups = useContext(PopupContext);
+
   // Timer function
   useEffect(() => {
     let timer = 0;
+    launchPopup();
     if (active && countdownTime >= 1000)
       timer = setTimeout(() => setCountdownTime((prev) => prev - 1000), 1000);
     return () => clearTimeout(timer);
   }, [countdownTime, active]);
 
   useEffect(() => {
-    if (sessionCounter > 0) audioRef.current.play();
+    if (sessionCounter > 0) {
+      audioRef.current.play();
+      setTask("");
+    }
   }, [sessionCounter]);
 
   const handleToggleClick = () => {
@@ -31,15 +42,25 @@ export default function Controls({
   };
 
   const handleResetClick = () => {
-    setActive(false);
+    // setActive(false);
     setCountdownTime(initialTime);
+    setTask("");
     audioRef.current.pause();
     audioRef.current.load();
   };
 
   const handleNextClick = () => {
     setIsSession(!isSession);
+    setTask("");
     setCountdownTime((isSession ? breakLength : sessionLength) * 60 * 1000);
+  };
+
+  const launchPopup = () => {
+    if (active && isSession && popups && countdownTime === initialTime) {
+      setIsOpen(true);
+      const timer = setTimeout(() => setIsOpen(false), 45000);
+      return clearTimeout(timer);
+    }
   };
 
   return (
@@ -60,6 +81,9 @@ export default function Controls({
           ref={audioRef}
         />
       </div>
+      {isOpen && (
+        <TaskPopup setIsOpen={setIsOpen} setTask={setTask} task={task} />
+      )}
     </>
   );
 }
