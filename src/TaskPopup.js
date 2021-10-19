@@ -28,7 +28,7 @@ export default function TaskPopup({ setIsOpen, setTask, task }) {
           x
         </span>
         <p className="text-center pb-2 ">
-          Would you like to set a task for this session?
+          Would you like to set <br/>a task for this session?
         </p>
         <div className="pb-4">
           <label>
